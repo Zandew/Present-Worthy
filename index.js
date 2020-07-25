@@ -19,34 +19,19 @@ app.use(express.static( '**/**'))
 app.use(express.static( 'views/'))
 //main page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "/views/index.html"));
+  res.sendFile("/views/index.html");
   //res.render('index.html');
 });
 
-//results page
-app.get('/results', (req, res) => {
-  res.sendFile(path.join(__dirname, "/views/results.html"));
-  //res.render('results.html');
-});
-app.get("**/**", function (req, res) {
-  console.log("AAA: " + req.path); 
-  res.sendFile(path.join(__dirname, req.path));
-}); 
-
-
-
 //post request from submitting image
 app.post('/submit', (req, res) => {
+  console.log(req.files);
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
 
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  let sampleFile = req.files.file;
-  let type = sampleFile.mimetype;
-  if (type.substring(0, type.indexOf("/")) != "image") {
-    return res.status(500).send("Not an image");
-  }
+  let sampleFile = req.files.img;
 
   // Use the mv() method to place the file somewhere on your server
   sampleFile.mv(__dirname+'/present.jpg');
@@ -80,7 +65,7 @@ app.post('/submit', (req, res) => {
     });
 
     var worthiness = 1234; //foo(checklist, labelList);
-    res.render('results.ejs', {worthiness: worthiness});
+    res.sendFile("/views/results.html");
   })
   .catch(err => {
     console.error('ERROR:', err);
