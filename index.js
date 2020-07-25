@@ -13,21 +13,6 @@ const client = new vision.ImageAnnotatorClient({
   keyFilename: 'APIKEY.json'
 });
 
-// Performs label detection on the image file
-/*client
-  .labelDetection('./present.jpg')
-  .then(results => {
-    const labels = results[0].labelAnnotations;
-
-    console.log('Labels:');
-    labels.forEach(label => console.log(label));
-    //console.log(results);
-  })
-  .catch(err => {
-    console.error('ERROR:', err);
-  });
-*/
-
 //main page
 app.get('/', (req, res) => {
   res.sendFile(__dirname+'/index.html');
@@ -46,8 +31,24 @@ app.post('/submit', function(req, res) {
   sampleFile.mv(__dirname+'/present.jpg', function(err) {
     if (err)
       return res.status(500).send(err);
+  });
 
-    res.send('File uploaded!');
+  //performs label detection
+  client
+  .labelDetection('./present.jpg')
+  .then(results => {
+
+    const labels = results[0].labelAnnotations;
+
+    var labelList = [];
+    labels.forEach(label => {
+      labelList.push(label['description']);
+    });
+    //var worthiness = foo(checklist, labelList);
+    res.sendFile(__dirname+'/results.html');
+  })
+  .catch(err => {
+    console.error('ERROR:', err);
   });
 });
 
