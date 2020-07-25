@@ -3,25 +3,35 @@ const app = express();
 const bodyParser = require('body-parser');
 const vision = require('@google-cloud/vision');
 const fileUpload = require('express-fileupload');
+var path = require("path");
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(fileUpload());
+
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
   keyFilename: 'APIKey.json'
 });
 
+app.use(express.static( '**/**'))
+app.use(express.static( 'views/'))
 //main page
 app.get('/', (req, res) => {
-  res.render('index.ejs');
+  res.sendFile(path.join(__dirname, "/views/index.html"));
+  //res.render('index.html');
 });
 
 //results page
 app.get('/results', (req, res) => {
-  res.render('results.ejs');
+  res.sendFile(path.join(__dirname, "/views/results.html"));
+  //res.render('results.html');
 });
+app.get("**/**", function (req, res) {
+  console.log("AAA: " + req.path); 
+  res.sendFile(path.join(__dirname, req.path));
+}); 
 
 
 
