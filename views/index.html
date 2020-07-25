@@ -8,9 +8,24 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<style>
+    label{
+    text-align: "center";
+}
+fieldset{
+    background-color: #FCE7B5;
+    text-align:initial;
+}
+h3{
+    text-align: center;
+}
 
-    <h1>Present Worthy</h1>
+</style>
+
+<body style="background-color: #FEF8EB;">
+        
+
+    <h1>Present Worthy</h1> 
 
     <div style="text-align:center">
         <h3>Upload Image</h3>
@@ -25,7 +40,8 @@
     <div class="checklist">
         <h2>Checklist</h2>
         
-        <fieldset style="width: 270px">
+        <fieldset style="width: 270px;">           
+            
             <h3>Age</h3>
             <input type="checkbox" id="children" name="children" value="Children">
             <label for="children">Children</label><br>
@@ -60,9 +76,13 @@
             <label for="music">Music</label><br><br> 
         
             <input type="checkbox" id="art" name="art" value="Art">
-            <label for="art">Adult</label><br><br>
-            
-            <input type="submit" value="Submit">
+            <label for="art">Art</label><br><br>
+
+            <form class= "align-center">
+                <input type="submit" value="Submit">
+            </form>     
+             
+       
         </fieldset>    
     </div>
 
