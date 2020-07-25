@@ -1,5 +1,5 @@
 // reading amazon products from output file goes here!
-window.idx=2; //needs to be a global variable
+window.idx=1; //needs to be a global variable
 
 window.read =function (){
     $.when($.getJSON(`amazon-scraper/apify_storage/datasets/amazon-dataset/${findFileName()}.json`)).then(function(data) {
