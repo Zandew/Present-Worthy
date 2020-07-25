@@ -18,6 +18,13 @@ app.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
+//results page
+app.get('/results', (req, res) => {
+  res.render('results.ejs');
+});
+
+
+
 //post request from submitting image
 app.post('/submit', (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
@@ -70,5 +77,5 @@ app.post('/submit', (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3000, () => console.log('Server running'));
+app.listen(process.env.PORT || 3000, () => console.log('Server running on http://localhost:3000'));
 
