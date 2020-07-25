@@ -65,7 +65,7 @@ app.post('/submit', (req, res) => {
     });
 
     var worthiness = 1234; //foo(checklist, labelList);
-    res.sendFile("/views/results.html");
+    res.sendFile(__dirname+"/views/results.html");
   })
   .catch(err => {
     console.error('ERROR:', err);
