@@ -30,7 +30,7 @@ Apify.main(async () => {
             .map((i, el) => $(el).attr('href'))
             .get();
 
-        const imglinks=  $('.s-image[src]')
+        const imglinks=  $('.s-image[src="https://m.media-amazon.com/images/*"]')
             .map((i, el) => $(el).attr('src'))
             .get();
         dataset.pushData({ title: title, products: clean(products), prices: prices, imglinks: imglinks, links: links});
