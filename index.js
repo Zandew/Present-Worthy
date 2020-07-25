@@ -10,12 +10,12 @@ app.use(fileUpload());
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
-  keyFilename: 'APIKEY.json'
+  keyFilename: 'APIKey.json'
 });
 
 //main page
 app.get('/', (req, res) => {
-  res.sendFile(__dirname+'/index.html');
+  res.render('index.ejs');
 });
 
 //post request from submitting image
@@ -25,7 +25,7 @@ app.post('/submit', function(req, res) {
   }
 
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  let sampleFile = req.files.sampleFile;
+  let sampleFile = req.files.file;
   
   // Use the mv() method to place the file somewhere on your server
   sampleFile.mv(__dirname+'/present.jpg', function(err) {
@@ -42,10 +42,14 @@ app.post('/submit', function(req, res) {
 
     var labelList = [];
     labels.forEach(label => {
-      labelList.push(label['description']);
+      labelList.push({
+        "label": label['description'],
+        "score": label['score']
+      });
     });
-    //var worthiness = foo(checklist, labelList);
-    res.sendFile(__dirname+'/results.html');
+    console.log(labelList);
+    var worthiness = 1234; //foo(checklist, labelList);
+    res.render('results.ejs', {worthiness: worthiness});
   })
   .catch(err => {
     console.error('ERROR:', err);
