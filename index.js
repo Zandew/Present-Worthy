@@ -65,6 +65,12 @@ app.post('/submit', (req, res) => {
     }
   }
 
+  let arr = req.body.other.split(',');
+  for (var i=0; i<arr.length; i++) {
+    checklist[arr[i]] = "on";
+    keyword += arr[i]+" ";
+  }
+
   //performs label detection
   client
   .labelDetection('./present.jpg')
