@@ -1,5 +1,17 @@
-.md-form mt-0{
-    position: absolute;
-    left: 300px;
-    margin-left: 1rem;
+body{
+    margin:0px;
+}
+.search-container {
+    float: left;
+    height:3rem;
+    
+  }
+
+button{
+    float:right;
+    padding: 6px 10px;
+    margin-top:8px;
+    margin-left: 16px;
+    width: 10rem;
+    height: 3rem;
 }
