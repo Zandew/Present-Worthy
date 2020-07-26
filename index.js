@@ -19,12 +19,12 @@ app.use(express.static( '**/**'))
 app.use(express.static( 'views/'))
 //main page
 app.get('/', (req, res) => {
-  res.sendFile("/views/index.html");
+  res.sendFile(__dirname+"/views/index.html");
 });
 
 //results page
 app.get('/results', (req, res) => {
-  res.sendFile("/views/results.html");
+  res.sendFile(__dirname+"/views/results.html");
 });
 
 //post request from submitting image
