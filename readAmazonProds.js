@@ -38,6 +38,8 @@ window.read =function (){
                 img.setAttribute('src', imglinks[i]);
                 img.setAttribute('class', 'amazon-img');
 
+                img.setAttribute('class', 'img-class-name');
+
                 //h1
                 var name=document.createElement('h4');
                 name.innerHTML=products[i];
