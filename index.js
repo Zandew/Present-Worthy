@@ -17,6 +17,7 @@ const client = new vision.ImageAnnotatorClient({
 
 app.use(express.static( '**/**'))
 app.use(express.static( 'views/'))
+
 //main page
 app.get('/', (req, res) => {
   res.sendFile(__dirname+"/views/index.html");
@@ -25,6 +26,11 @@ app.get('/', (req, res) => {
 //results page
 app.get('/results', (req, res) => {
   res.render(__dirname+"/views/results.html", {worthiness: "N/A"});
+});
+
+app.get("**/**", function (req, res) {
+  console.log("AAA: " + req.path);
+  res.sendFile(path.join(__dirname, req.path));
 });
 
 //post request from submitting image
