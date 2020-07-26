@@ -4,57 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Present Worthy</title>
-    <link rel="stylesheet" href="skeleton.css"> 
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="../hi.png" type="image/png" />
 </head>
 
 <body>
+     <!-- Header -->
+     <header id="header" class="alt">
+        <h1><a href="/"></a></h1> <!--image  goes here-->
+        <nav id="nav">
+          <ul>
+            <li><a href="/">Find Your Perfect Present</a></li>
+            <li><a href="/results">Results</a></li>
+          </ul>
+        </nav>
+      </header>
 
     <h1>Present Worthy</h1>
-
     
-    <div class="checkbox">
-        <label><input type="checkbox" value="children">Children</label>
-    </div>
-
-    <div class="checkbox">
-        <label><input type="checkbox" value="teen">teen</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="adult">adult</label>
-    </div>
-    <div class="checkbox">
-          <label><input type="checkbox" value="foodRelated">Food</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox"  value="giftBasket">gift</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="bDayCards">BirthdayCards</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="booksMovies">Books or Movies</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="colors">Colors</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="sports">Sports</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="music">Music</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" value="art">Art</label>
-    </div>
-  
+    <form action="/submit" method="post" encType="multipart/form-data"> 
+      <div style="text-align:center">
+          <h3>Upload Image</h3>
+          <div class="uploadImage">
+              
+                  <label for="img">Select image:</label>
+                  <input type="file" id="img" name="img" accept="image/*">
+                  <input type="submit">
+          </div>
+      </div>
     
-    
-    <div class="uploadImage">
-        <label for="img">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*">
-        <input type="submit">
-    </div>
+      <div class="checklist">
+          <h2>Checklist</h2>
+          
+          <fieldset style="width: 270px">
+              <h3>Age</h3>
+              <div class="checkbox">
+                 <label><input type="checkbox" value="children">Children</label>
+              </div>
+        
+              <div class="checkbox">
+                 <label><input type="checkbox" value="teen">teen</label>
+              </div>
+              <div class="checkbox">
+                    <label><input type="checkbox" value="adult">adult</label>
+               </div> 
+      
+              <h3>Type of Present</h3>
+              <div class="checkbox">
+                    <label><input type="checkbox" value="foodRelated">Food</label>
+              </div>
 
+              <div class="checkbox">
+                  <label><input type="checkbox"  value="giftBasket">gift</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="bDayCards">BirthdayCards</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="booksMovies">Books or Movies</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="colors">Colors</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="sports">Sports</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="music">Music</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="art">Art</label>
+              </div>
+          </fieldset>    
+      </div>
+    </form>
 
 </body>
