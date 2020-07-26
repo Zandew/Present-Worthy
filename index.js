@@ -3,13 +3,28 @@ const app = express();
 const bodyParser = require('body-parser');
 const vision = require('@google-cloud/vision');
 const fileUpload = require('express-fileupload');
+const fs = require('fs');
+const process = require('process'); 
+const util = require('util');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 const worth = require('./worth');
 var path = require("path");
+const exec = util.promisify(require('child_process').exec);
+var index=0;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(fileUpload());
 app.engine('html', require('ejs').renderFile);
+
+//remove previous dataset files(so they don't override new window)
+async function remove() {
+  const { stdout, stderr } = await exec('rm -r amazon-scraper/apify_storage/datasets/amazon-dataset/');
+  console.log('stdout:', stdout);
+  console.log('stderr:', stderr);
+}
+remove();
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
@@ -84,11 +99,49 @@ app.post('/submit', (req, res) => {
         "label": label['description'],
         "score": label['score']
       });
-      keyword += label['description'];
+      //keyword += label['description'];
     });
 
     var worthiness = worth(checklist, labelList);
-    res.render(__dirname+"/views/results.html", {worthiness: worthiness});
+
+    
+    //JSON write
+    var data= {
+      keyword: keyword,
+    }
+    let dataJSON = JSON.stringify(data);
+    fs.writeFileSync('amazon-scraper/apify_storage/key_value_stores/default/INPUT.json', dataJSON);
+
+    //preform webscraping
+    async function scrape() {
+      //loading sign ...
+      /*
+      const dom = new JSDOM(``, {
+        url: "http://localhost:3000/",
+        referrer: "http://localhost:3000/",
+        contentType: "text/html",
+        includeNodeLocations: true,
+        storageQuota: 10000000
+      });
+      const loading  =dom.window.document.getElementById("loading-sign"); 
+      console.log("loading: ", loading);
+      loading.style.cssText=`
+        display: block;
+      `;*/
+      const { stdout, stderr } = await exec('cd amazon-scraper && apify run --purge');
+      console.log('stdout:', stdout);
+      console.log('stderr:', stderr);
+      /*
+      loading.style.cssText=`
+        display: none;
+      `;
+      */
+
+      //now, render
+      index=index+1;//next dataset
+      res.render(__dirname+"/views/results.html", {worthiness: worthiness, index:index});
+    }
+    scrape();
   })
   .catch(err => {
     console.error('ERROR:', err);
