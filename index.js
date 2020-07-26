@@ -9,7 +9,9 @@ const util = require('util');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const worth = require('./worth');
+const shuffle = require('shuffle-array');
 var path = require("path");
+const { DEFAULT_MIN_VERSION } = require('tls');
 const exec = util.promisify(require('child_process').exec);
 var index=0;
 
@@ -24,7 +26,11 @@ async function remove() {
   console.log('stdout:', stdout);
   console.log('stderr:', stderr);
 }
-remove();
+
+remove()
+  .catch(err => {
+    console.log(err);
+  });
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
@@ -72,11 +78,11 @@ app.post('/submit', (req, res) => {
     "art": req.body.art
   }
 
-  keyword = ""
+  keywords = []
 
   for (var key in checklist) {
     if (checklist[key] != undefined) {
-      keyword += key+" ";
+      keywords.push(key);
     }
   }
   console.log("req body: ", req.body.other)
@@ -84,7 +90,7 @@ app.post('/submit', (req, res) => {
   let arr = req.body.other.split(',');
   for (var i=0; i<arr.length; i++) {
     checklist[arr[i]] = "on";
-    keyword += arr[i]+" ";
+    keywords.push(arr[i]);
   }
 
   //performs label detection
@@ -100,12 +106,17 @@ app.post('/submit', (req, res) => {
         "label": label['description'],
         "score": label['score']
       });
-      //keyword += label['description'];
+      keywords.push(label['description']);
     });
 
     var worthiness = worth(checklist, labelList);
 
-    
+    shuffle(keywords);
+    var keyword = "";
+    for (var i=0; i<Math.min(3, keywords.length); i++) {
+      keyword += keywords[i]+" ";
+    }  
+  
     //JSON write
     var data= {
       keyword: keyword,
@@ -142,7 +153,10 @@ app.post('/submit', (req, res) => {
       index=index+1;//next dataset
       res.render(__dirname+"/views/results.html", {worthiness: worthiness, index:index});
     }
-    scrape();
+    scrape()
+      .catch(err => {
+        console.log(err);
+      });
   })
   .catch(err => {
     console.error('ERROR:', err);
