@@ -22,7 +22,7 @@ app.engine('html', require('ejs').renderFile);
 
 //remove previous dataset files(so they don't override new window)
 async function remove() {
-  const { stdout, stderr } = await exec('rm -r amazon-scraper/apify_storage/datasets/amazon-dataset/');
+  const { stdout, stderr } = await exec('rm -r amazon-scraper/apify_storage/datasets/amazon-dataset/* && npm install apify-cli -g');
   console.log('stdout:', stdout);
   console.log('stderr:', stderr);
 }
@@ -140,7 +140,7 @@ app.post('/submit', (req, res) => {
       loading.style.cssText=`
         display: block;
       `;*/
-      const { stdout, stderr } = await exec('cd amazon-scraper && node main.js');
+      const { stdout, stderr } = await exec('cd amazon-scraper && npm i apify --save && apify run --purge');
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       /*
