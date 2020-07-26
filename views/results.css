@@ -10,6 +10,10 @@ body{
     
   }
 
+h2 {
+    color: white;
+}
+
 button{
     float:right;
     padding: 6px 10px;
