@@ -4,86 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Present Worthy</title>
-    <link rel="stylesheet" href="skeleton.css"> 
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="../hi.png" type="image/png" />
 </head>
 
-<style>
-    label{
-    text-align: "center";
-}
-fieldset{
-    background-color: #FCE7B5;
-    text-align:initial;
-}
-h3{
-    text-align: center;
-}
+<body>
+     <!-- Header -->
+     <header id="header" class="alt">
+        <h1><a href="/"></a></h1> <!--image  goes here-->
+        <nav id="nav">
+          <ul>
+            <li><a href="/">Find Your Perfect Present</a></li>
+            <li><a href="/results">Results</a></li>
+          </ul>
+        </nav>
+      </header>
 
-</style>
-
-<body style="background-color: #FEF8EB;">
-        
-
-    <h1>Present Worthy</h1> 
-
-    <div style="text-align:center">
-        <h3>Upload Image</h3>
-        <div class="uploadImage">
-            
-                <label for="img">Select image:</label>
-                <input type="file" id="img" name="img" accept="image/*">
-                <input type="submit">
-        </div>
-    </div>
-   
-    <div class="checklist">
-        <h2>Checklist</h2>
-        
-        <fieldset style="width: 270px;">           
-            
-            <h3>Age</h3>
-            <input type="checkbox" id="children" name="children" value="Children">
-            <label for="children">Children</label><br>
-        
-            <input type="checkbox" id="teen" name="teen" value="Teen">
-            <label for="teen">Teen</label><br>
-        
-            <input type="checkbox" id="adult" name="adult" value="Adult">
-            <label for="adult">Adult</label><br><br>
-           
+    <h1>Present Worthy</h1>
     
-            <h3>Type of Present</h3>
-            <input type="checkbox" id="foodRelated" name="foodRelated" value="FoodRelated">
-            <label for="foodRelated">Food</label><br><br>
-        
-            <input type="checkbox" id="giftBasket" name="giftBasket" value="GiftBasket">
-            <label for="giftBasket">Gift</label><br><br> 
-        
-            <input type="checkbox" id="bDayCards" name="bDayCards" value="BDayCards">
-            <label for="bDayCards">Birthday Cards</label><br><br> 
-        
-            <input type="checkbox" id="booksMovies" name="booksMovies" value="BooksMovies">
-            <label for="booksMovies">Books or Movies</label><br><br> 
-        
-            <input type="checkbox" id="color" name="color" value="Color">
-            <label for="color">Color</label><br><br>
-        
-            <input type="checkbox" id="sports" name="sports" value="Sports">
-            <label for="sports">Sports</label><br><br> 
-        
-            <input type="checkbox" id="music" name="music" value="Music">
-            <label for="music">Music</label><br><br> 
-        
-            <input type="checkbox" id="art" name="art" value="Art">
-            <label for="art">Art</label><br><br>
+    <form action="/submit" method="post" encType="multipart/form-data"> 
+      <div style="text-align:center">
+          <h3>Upload Image</h3>
+          <div class="uploadImage">
+              
+                  <label for="img">Select image:</label>
+                  <input type="file" id="img" name="img" accept="image/*">
+                  <input type="submit">
+          </div>
+      </div>
+    
+      <div class="checklist">
+          <h2>Checklist</h2>
+          
+          <fieldset style="width: 270px">
+              <h3>Age</h3>
+              <input type="checkbox" id="children" name="children" value="Children">
+              <label for="children">Children</label><br>
+          
+              <input type="checkbox" id="teen" name="teen" value="Teen">
+              <label for="teen">Teen</label><br>
+          
+              <input type="checkbox" id="adult" name="adult" value="Adult">
+              <label for="adult">Adult</label><br><br>
+            
+      
+              <h3>Type of Present</h3>
+              <input type="checkbox" id="foodRelated" name="foodRelated" value="FoodRelated">
+              <label for="foodRelated">Food</label><br><br>
+          
+              <input type="checkbox" id="giftBasket" name="giftBasket" value="GiftBasket">
+              <label for="giftBasket">Gift</label><br><br> 
+          
+              <input type="checkbox" id="bDayCards" name="bDayCards" value="BDayCards">
+              <label for="bDayCards">Birthday Cards</label><br><br> 
+          
+              <input type="checkbox" id="booksMovies" name="booksMovies" value="BooksMovies">
+              <label for="booksMovies">Books or Movies</label><br><br> 
+          
+              <input type="checkbox" id="color" name="color" value="Color">
+              <label for="color">Color</label><br><br>
+          
+              <input type="checkbox" id="sports" name="sports" value="Sports">
+              <label for="sports">Sports</label><br><br> 
+          
+              <input type="checkbox" id="music" name="music" value="Music">
+              <label for="music">Music</label><br><br> 
+          
+              <input type="checkbox" id="art" name="art" value="Art">
+              <label for="art">Adult</label><br><br>
 
-            <form class= "align-center">
-                <input type="submit" value="Submit">
-            </form>     
-             
-       
-        </fieldset>    
-    </div>
+          </fieldset>    
+      </div>
+    </form>
 
 </body>
