@@ -140,7 +140,7 @@ app.post('/submit', (req, res) => {
       loading.style.cssText=`
         display: block;
       `;*/
-      const { stdout, stderr } = await exec('cd amazon-scraper && apify run --purge');
+      const { stdout, stderr } = await exec('cd amazon-scraper && node main.js');
       console.log('stdout:', stdout);
       console.log('stderr:', stderr);
       /*
@@ -151,7 +151,7 @@ app.post('/submit', (req, res) => {
 
       //now, render
       index=index+1;//next dataset
-      res.render(__dirname+"/views/results.html", {worthiness: worthiness, index:index});
+      res.render(__dirname+"/views/results.html", {worthiness: Math.round(worthiness*100)/100, index:index});
     }
     scrape()
       .catch(err => {
