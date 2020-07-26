@@ -1,5 +1,6 @@
 body{
     margin:0px;
+    background-color:  #FEF8EB;
 }
 .search-container {
     float: left;
@@ -14,4 +15,9 @@ button{
     margin-left: 16px;
     width: 10rem;
     height: 3rem;
+}
+
+fieldset{
+    width: 270pt;
+    height:500px;
 }
