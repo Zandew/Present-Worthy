@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 body{
     margin:0px;
-    background-color:  #FEF8EB;
+    background-color:  #062A4B;
 }
 .search-container {
     float: left;
@@ -20,4 +22,44 @@ button{
 fieldset{
     width: 270pt;
     height:500px;
+}
+
+.amazon-prod{
+    background-color: #FEF8EB;
+    border-radius: 2em;
+    font-family: 'Ubuntu', sans-serif;
+    width: 500px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 100px;
+    box-shadow: 5px 10px #bdbdbd;
+}
+
+.amazon-img{
+    width:200px;
+    height: auto;
+}
+
+.amazon-name{
+   
+}
+.amazon-price{
+
+}
+.amazon-link{
+    color: #062A4B;
+    text-decoration: none;
+}
+.amazon-link:hover{
+    color: #E83021;
+}
+.amazon-link:focus{
+    color: #E83021;
+
+}
+.amazon-link:visited{
+    color: #E83021;
+
 }
