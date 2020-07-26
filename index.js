@@ -23,20 +23,15 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname+"/views/index.html");
 });
 
-
-//results page
-app.get('/results', (req, res) => {
-  res.render(__dirname+"/views/results.html", {worthiness: "N/A"});
-});
-
 app.get("**/**", function (req, res) {
   console.log("AAA: " + req.path);
   res.sendFile(path.join(__dirname, req.path));
 });
 
+var keyword
+
 //post request from submitting image
 app.post('/submit', (req, res) => {
-  console.log(req.files);
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
@@ -46,6 +41,7 @@ app.post('/submit', (req, res) => {
 
   // Use the mv() method to place the file somewhere on your server
   sampleFile.mv(__dirname+'/present.jpg');
+  console.log(req.body);
   var checklist = {
     "children": req.body.children,
     "teen": req.body.teen,
@@ -58,6 +54,14 @@ app.post('/submit', (req, res) => {
     "sports": req.body.sports,
     "music": req.body.music,
     "art": req.body.art
+  }
+
+  keyword = ""
+
+  for (var key in checklist) {
+    if (checklist[key] != undefined) {
+      keyword += key+" ";
+    }
   }
 
   //performs label detection
@@ -73,10 +77,11 @@ app.post('/submit', (req, res) => {
         "label": label['description'],
         "score": label['score']
       });
+      keyword += label['description'];
     });
 
     var worthiness = 1234; //foo(checklist, labelList);
-    res.sendFile(__dirname+"/views/results.html");
+    res.render(__dirname+"/views/results.html", {worthiness: worthiness});
   })
   .catch(err => {
     console.error('ERROR:', err);
