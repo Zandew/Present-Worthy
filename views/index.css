@@ -1,23 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+html{
+    margin:0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+body{
+    background-color: #062A4B;
+    font-family: 'Fredoka One', cursive;
+ }
 .checklist
 {
-    position: absolute;
-    left: 100px;
     width: 300pt;
-    font-family: monospace;
     color: #062A4B;
 }
 .uploadImage
 {
-    position: absolute;
-    right: 300px;       
     margin-right: 1rem;
-    color: #062A4B;
+    color: #FEF8EB;
 }
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #E83021;
+    padding: 20px;
+    background-color: #FEF8EB;
     text-align: center;
  }
+ .header-img{
+    background-color: #FEF8EB;
+    margin:0px;
+    width: 100%;
+ }
+ .checkbox{
+    font-family: 'Ubuntu', sans-serif;
+ }
+ 
+label{
+    text-align: "center";
+    font-family: 'Ubuntu', sans-serif;
+}
+input{
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    padding:10px;
+}
+fieldset{
+    background-color: #FEF8EB; 
+    border:none;
+    border-radius: 2em;   
+}
+h3{
+    text-align: center;
+}
+#text-input{
+    border: 1px solid #062A4B; 
+    border-radius: 1em;
+    margin-top: 15px;
+}
+#text-input:focus{
+   
+    border: 1px solid #062A4B; 
+    border-radius: 1em;
+}
+td{
+    margin-right:100px;
+
+}
+.submit-button{
+    border-radius: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #E83021;
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+}
+.submit-button:hover{
+
+    color: #062A4B;
+ 
+}
+.form-button{
+    border-radius: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white
+}
+.main-desc{
+    color:white;
+    margin-left:15%;
+    margin-right:15%;
+}
+.main-desc h1{
+    color:#FEF8EB;
+}
+.main-desc p{
+    font-family: 'Ubuntu', sans-serif;
+    font-size:17px;
+}

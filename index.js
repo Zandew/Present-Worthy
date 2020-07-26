@@ -79,6 +79,7 @@ app.post('/submit', (req, res) => {
       keyword += key+" ";
     }
   }
+  console.log("req body: ", req.body.other)
 
   let arr = req.body.other.split(',');
   for (var i=0; i<arr.length; i++) {
