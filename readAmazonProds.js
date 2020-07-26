@@ -1,10 +1,13 @@
 // reading amazon products from output file goes here!
-window.idx=1; //needs to be a global variable
+
 
 window.read =function (){
     $.when($.getJSON(`amazon-scraper/apify_storage/datasets/amazon-dataset/${findFileName()}.json`)).then(function(data) {
         
-        var title=data.title;
+       // var title=data.title;
+        //var title_elem = document.getElementById('title-elm');
+        //title_elem.innerHTML=title;
+
         //lists:
         var products=data.products.split(";");;
         var prices=data.prices.split("$"); //need to make sure not to include the first one
@@ -54,6 +57,9 @@ function changeJSONtoList(json){
 }
 
 function findFileName(){
+    var idx_elm=document.getElementById('find-idx')
+    var idx=idx_elm.innerHTML;
+    console.log("idx: ", idx);
     var str = "" + idx;
     var pad = "000000000";
     var ans = pad.substring(0, pad.length - str.length) + str;
