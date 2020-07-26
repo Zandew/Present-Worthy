@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Present Worthy</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="../hi.png" type="image/png" />
+    <link rel="shortcut icon" href="img/4.png" type="image/png" />
 </head>
 
 <style>
-    label{
+
+label{
     text-align: "center";
 }
 fieldset{
@@ -18,78 +19,70 @@ fieldset{
 h3{
     text-align: center;
 }
+
 </style>
 
 <body>
-     <!-- Header -->
-     <header id="header" class="alt">
-        <h1><a href="/"></a></h1> <!--image  goes here-->
-        <nav id="nav">
-          <ul>
-            <li><a href="/">Find Your Perfect Present</a></li>
-            <li><a href="/results">Results</a></li>
-          </ul>
-        </nav>
-      </header>
+    <h1><a href="/">
+        <image style="padding: 0.5cm;" src="img/logo2.png" width="200" height="75" /></a></h1>
       <body style="background-color: #FEF8EB;">
-      
-    <h1>Present Worthy</h1>
-    
+     
     <form action="/submit" method="post" encType="multipart/form-data"> 
 
-        
-        <div style="text-align:center">
-            <h3>Upload Image</h3>
-            <div class="uploadImage">
-                
-                    <label for="img">Select image:</label>
-                    <input type="file" id="img" name="img" accept="image/*">
-                    <input type="submit">
+        <div class="uploadImage">
+            <div>
+                <h2 style="color:#E83021; font-family: 'Gill Sans MT', sans-serif;">Upload Image:</h3>            
+                    
+                        <label for="img">Select image:</label>
+                        <input type="file" id="img" name="img" accept="image/*">
+                        <input type="submit">
             </div>
         </div>
     
       <div class="checklist">
-          <h2>Checklist</h2>
+          <h2 style="right: 120pc; color: #E83021; font-family: 'Gill Sans MT', sans-serif;">Checklist:</h2>
           
-          <fieldset style="width: 270px">
-              <h3>Age</h3>
+          <fieldset style="width: 270pt">
+              <h3 style="color:#062A4B; font-family: Calibri, 'Trebuchet MS', sans-serif;">Age:</h3>
               <div class="checkbox">
-                 <label><input type="checkbox" value="children">Children</label>
+                 <label><input type="checkbox" name="children">Children</label>
               </div>
         
               <div class="checkbox">
-                 <label><input type="checkbox" value="teen">teen</label>
+                 <label><input type="checkbox" name="teen">Teen</label>
               </div>
               <div class="checkbox">
-                    <label><input type="checkbox" value="adult">adult</label>
+                    <label><input type="checkbox" name="adult">Adult</label>
                </div> 
       
-              <h3>Type of Present</h3>
+              <h3 style="color:#062A4B; font-family: Calibri, 'Trebuchet MS', sans-serif;">Type of Present:</h3>
               <div class="checkbox">
-                    <label><input type="checkbox" value="foodRelated">Food</label>
+                    <label><input type="checkbox" name="foodRelated">Food</label>
               </div>
+              <div class="checkbox">
+                  <label><input type="checkbox"  name="giftBasket">Gift Basket</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="bDayCards">Birthday Cards</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="booksMovies">Books or Movies</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="colors">Colors</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="sports">Sports</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="music">Music</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="art">Art</label> 
+              </div> <br><br>
 
-              <div class="checkbox">
-                  <label><input type="checkbox"  value="giftBasket">gift</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" value="bDayCards">BirthdayCards</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" value="booksMovies">Books or Movies</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" value="colors">Colors</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" value="sports">Sports</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" value="music">Music</label>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox" value="art">Art</label>
-              </div>
+                <input type="submit" value="Submit">
+             
           </fieldset>    
       </div>
     </form>
