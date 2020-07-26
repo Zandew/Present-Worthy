@@ -8,7 +8,7 @@ var path = require("path");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(fileUpload());
-
+app.engine('html', require('ejs').renderFile);
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 //results page
 app.get('/results', (req, res) => {
-  res.sendFile(__dirname+"/views/results.html");
+  res.render(__dirname+"/views/results.html", {worthiness: "N/A"});
 });
 
 //post request from submitting image
@@ -74,7 +74,7 @@ app.post('/submit', (req, res) => {
   .catch(err => {
     console.error('ERROR:', err);
   });*/
-  res.sendFile(__dirname+"/views/results.html");
+  res.render(__dirname+"/views/results.html", {worthiness: 1234});
 });
 
 app.listen(process.env.PORT || 3000, () => console.log('Server running on http://localhost:3000'));
