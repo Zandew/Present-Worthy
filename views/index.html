@@ -9,7 +9,8 @@
 </head>
 
 <style>
-    label{
+
+label{
     text-align: "center";
 }
 fieldset{
@@ -18,19 +19,20 @@ fieldset{
 h3{
     text-align: center;
 }
+
 </style>
 
 <body>
 
       <body style="background-color: #FEF8EB;">
       
-    <h1>Present Worthy</h1>
+    <h1 style="color:#062A4B; ">Present Worthy</h1>
     
     <form action="/submit" method="post" encType="multipart/form-data"> 
 
         <div class="uploadImage">
             <div>
-                <h2>Upload Image</h3>            
+                <h2 style="color:#E83021; font-family: 'Gill Sans MT', sans-serif;">Upload Image:</h3>            
                     
                         <label for="img">Select image:</label>
                         <input type="file" id="img" name="img" accept="image/*">
@@ -39,22 +41,22 @@ h3{
         </div>
     
       <div class="checklist">
-          <h2 style="right: 120pc;">Checklist</h2>
+          <h2 style="right: 120pc; color: #E83021; font-family: 'Gill Sans MT', sans-serif;">Checklist:</h2>
           
           <fieldset style="width: 270pt">
-              <h3>Age</h3>
+              <h3 style="color:#062A4B; font-family: Calibri, 'Trebuchet MS', sans-serif;">Age:</h3>
               <div class="checkbox">
                  <label><input type="checkbox" value="children">Children</label>
               </div>
         
               <div class="checkbox">
-                 <label><input type="checkbox" value="teen">teen</label>
+                 <label><input type="checkbox" value="teen">Teen</label>
               </div>
               <div class="checkbox">
-                    <label><input type="checkbox" value="adult">adult</label>
+                    <label><input type="checkbox" value="adult">Adult</label>
                </div> 
       
-              <h3>Type of Present</h3>
+              <h3 style="color:#062A4B; font-family: Calibri, 'Trebuchet MS', sans-serif;">Type of Present:</h3>
               <div class="checkbox">
                     <label><input type="checkbox" value="foodRelated">Food</label>
               </div>
@@ -77,8 +79,11 @@ h3{
                 <label><input type="checkbox" value="music">Music</label>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox" value="art">Art</label>
-              </div>
+                <label><input type="checkbox" value="art">Art</label> 
+              </div> <br><br>
+
+                <input type="submit" value="Submit">
+             
           </fieldset>    
       </div>
     </form>

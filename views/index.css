@@ -3,13 +3,14 @@
     position: absolute;
     left: 100px;
     width: 300pt;
+    font-family: monospace;
+    color: #062A4B;
 }
 .uploadImage
 {
     position: absolute;
-    right: 300px;
-    width: 300pt;
-}
-.uploadImage{
+    right: 300px;       
     margin-right: 1rem;
+    color: #062A4B;
 }
+
