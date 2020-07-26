@@ -21,7 +21,14 @@ window.read =function (){
             document.getElementById('amazon-results').appendChild(elem); 
         }
         else{
-            for (let  i=0; i<7; i++){
+            var length;
+            if (imglinks.length<20){
+                length=imglinks.length;
+            }
+            else{
+                length=20;
+            }
+            for (let  i=0; i<length; i++){
                 //div
                 var div = document.createElement('div');
                 div.setAttribute('class', 'amazon-prod');
@@ -29,20 +36,24 @@ window.read =function (){
                 //img
                 var img=document.createElement('img');
                 img.setAttribute('src', imglinks[i]);
+                img.setAttribute('class', 'amazon-img');
 
                 img.setAttribute('class', 'img-class-name');
 
                 //h1
                 var name=document.createElement('h4');
                 name.innerHTML=products[i];
+                name.setAttribute('class', 'amazon-name');
                 
                 //a
                 var link=document.createElement('a');
                 link.setAttribute('href', "https://www.amazon.com/"+links[i]);
+                link.setAttribute('class', 'amazon-link');
 
                 //p
                 var price=document.createElement('p');
                 price.innerHTML="$"+prices[i];
+                price.setAttribute('class', 'amazon-price');
 
                 link.appendChild(name)
 
