@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname+"/views/index.html");
 });
 
+
 //results page
 app.get('/results', (req, res) => {
   res.render(__dirname+"/views/results.html", {worthiness: "N/A"});
