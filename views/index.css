@@ -13,4 +13,11 @@
     margin-right: 1rem;
     color: #062A4B;
 }
-
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #E83021;
+    text-align: center;
+ }
