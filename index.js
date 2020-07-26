@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const vision = require('@google-cloud/vision');
 const fileUpload = require('express-fileupload');
+const worth = require('./worth');
 var path = require("path");
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +42,7 @@ app.post('/submit', (req, res) => {
 
   // Use the mv() method to place the file somewhere on your server
   sampleFile.mv(__dirname+'/present.jpg');
-  console.log(req.body);
+
   var checklist = {
     "children": req.body.children,
     "teen": req.body.teen,
@@ -65,7 +66,7 @@ app.post('/submit', (req, res) => {
   }
 
   //performs label detection
-  /*client
+  client
   .labelDetection('./present.jpg')
   .then(results => {
 
@@ -80,13 +81,12 @@ app.post('/submit', (req, res) => {
       keyword += label['description'];
     });
 
-    var worthiness = 1234; //foo(checklist, labelList);
+    var worthiness = worth(checklist, labelList);
     res.render(__dirname+"/views/results.html", {worthiness: worthiness});
   })
   .catch(err => {
     console.error('ERROR:', err);
-  });*/
-  res.render(__dirname+"/views/results.html", {worthiness: 1234});
+  });
 });
 
 app.listen(process.env.PORT || 3000, () => console.log('Server running on http://localhost:3000'));
