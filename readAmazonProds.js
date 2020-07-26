@@ -30,6 +30,8 @@ window.read =function (){
                 var img=document.createElement('img');
                 img.setAttribute('src', imglinks[i]);
 
+                img.setAttribute('class', 'img-class-name');
+
                 //h1
                 var name=document.createElement('h4');
                 name.innerHTML=products[i];
