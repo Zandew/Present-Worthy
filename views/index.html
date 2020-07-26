@@ -37,21 +37,20 @@ h3{
     
     <form action="/submit" method="post" encType="multipart/form-data"> 
 
-        
-        <div style="text-align:center">
-            <h3>Upload Image</h3>
-            <div class="uploadImage">
-                
-                    <label for="img">Select image:</label>
-                    <input type="file" id="img" name="img" accept="image/*">
-                    <input type="submit">
+        <div class="uploadImage">
+            <div>
+                <h2>Upload Image</h3>            
+                    
+                        <label for="img">Select image:</label>
+                        <input type="file" id="img" name="img" accept="image/*">
+                        <input type="submit">
             </div>
         </div>
     
       <div class="checklist">
-          <h2>Checklist</h2>
+          <h2 style="right: 120pc;">Checklist</h2>
           
-          <fieldset style="width: 270px">
+          <fieldset style="width: 270pt">
               <h3>Age</h3>
               <input type="checkbox" id="children" name="children" value="Children">
               <label for="children">Children</label><br>
@@ -86,7 +85,11 @@ h3{
               <label for="music">Music</label><br><br> 
           
               <input type="checkbox" id="art" name="art" value="Art">
-              <label for="art">Adult</label><br><br>
+              <label for="art">Art</label><br><br>
+
+              <form class= "align-center">
+                <input type="submit" value="Submit">
+            </form>   
 
           </fieldset>    
       </div>
