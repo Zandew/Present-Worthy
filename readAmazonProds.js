@@ -11,37 +11,45 @@ window.read =function (){
         prices=prices.slice(1);
         var imglinks=changeJSONtoList(data.imglinks); 
         var links=changeJSONtoList(data.links);
-
-        for (let  i=0; i<7; i++){
-            //div
-            var div = document.createElement('div');
-            div.setAttribute('class', 'amazon-prod');
-
-            //img
-            var img=document.createElement('img');
-            img.setAttribute('src', imglinks[i]);
-
-            //h1
-            var name=document.createElement('h4');
-            name.innerHTML=products[i];
-            
-            //a
-            var link=document.createElement('a');
-            link.setAttribute('href', "https://www.amazon.com/"+links[i]);
-
-            //p
-            var price=document.createElement('p');
-            price.innerHTML="$"+prices[i];
-
-            link.appendChild(name)
-
-            div.appendChild(img);
-            div.appendChild(link);
-            div.appendChild(price);
-            document.getElementById('amazon-results').appendChild(div);  //the div id must be this!!!
+        console.log("prices", prices.length);
+        console.log("links", links);
+        console.log("imglinks", imglinks);
+        console.log("products", products);
+        if (prices.length==0){
+            var elem=document.createElement('h4');
+            elem.innerHTML="No search results found. ";
+            document.getElementById('amazon-results').appendChild(elem); 
         }
+        else{
+            for (let  i=0; i<7; i++){
+                //div
+                var div = document.createElement('div');
+                div.setAttribute('class', 'amazon-prod');
 
-       
+                //img
+                var img=document.createElement('img');
+                img.setAttribute('src', imglinks[i]);
+
+                //h1
+                var name=document.createElement('h4');
+                name.innerHTML=products[i];
+                
+                //a
+                var link=document.createElement('a');
+                link.setAttribute('href', "https://www.amazon.com/"+links[i]);
+
+                //p
+                var price=document.createElement('p');
+                price.innerHTML="$"+prices[i];
+
+                link.appendChild(name)
+
+                div.appendChild(img);
+                div.appendChild(link);
+                div.appendChild(price);
+                document.getElementById('amazon-results').appendChild(div);  //the div id must be this!!!
+            }
+        }  
     });
 }
 
@@ -54,7 +62,8 @@ function changeJSONtoList(json){
 }
 
 function findFileName(){
-    var str = "" + idx;
+    var id_elm= document.getElementById('find-idx')
+    var str = "" + id_elm.innerHTML;
     var pad = "000000000";
     var ans = pad.substring(0, pad.length - str.length) + str;
     console.log("fileval: ", ans);
