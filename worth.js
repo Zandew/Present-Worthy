@@ -11,5 +11,5 @@ module.exports = (checklist, labels) => {
             worth += stringSimilarity.compareTwoStrings(key.toLowerCase(), labels[i]['label'].toLowerCase())*labels[i]['score'];
         }
     }
-    return worth/(0.9+worth);
+    return worth/(0.3+worth);
 }
