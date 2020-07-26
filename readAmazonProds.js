@@ -36,18 +36,22 @@ window.read =function (){
                 //img
                 var img=document.createElement('img');
                 img.setAttribute('src', imglinks[i]);
+                img.setAttribute('class', 'amazon-img');
 
                 //h1
                 var name=document.createElement('h4');
                 name.innerHTML=products[i];
+                name.setAttribute('class', 'amazon-name');
                 
                 //a
                 var link=document.createElement('a');
                 link.setAttribute('href', "https://www.amazon.com/"+links[i]);
+                link.setAttribute('class', 'amazon-link');
 
                 //p
                 var price=document.createElement('p');
                 price.innerHTML="$"+prices[i];
+                price.setAttribute('class', 'amazon-price');
 
                 link.appendChild(name)
 
