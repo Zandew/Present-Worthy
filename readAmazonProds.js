@@ -21,7 +21,14 @@ window.read =function (){
             document.getElementById('amazon-results').appendChild(elem); 
         }
         else{
-            for (let  i=0; i<7; i++){
+            var length;
+            if (imglinks.length<20){
+                length=imglinks.length;
+            }
+            else{
+                length=20;
+            }
+            for (let  i=0; i<length; i++){
                 //div
                 var div = document.createElement('div');
                 div.setAttribute('class', 'amazon-prod');
